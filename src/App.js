@@ -4,9 +4,6 @@ import './App.css';
 import Movie from "./Movie";
 
 
-
-
-
 // 모든 component는 render function을 가지고있다.
 // render: showing something
 // 컴포넌트생성 > 렌더링 > 리턴 > HTML 내용
@@ -18,7 +15,7 @@ class App extends Component {
   // - 5초 뒤에 status를 변경시켜 출력해보자.
 
   state = {
-    greeting: "hello!",
+    greeting: "hej!!!",
     // #4-2
   };
 
