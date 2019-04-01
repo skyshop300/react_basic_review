@@ -10,13 +10,29 @@ import Movie from "./Movie";
 class App extends Component {
 	componentWillMount() {}
 
+	// #4-1 Thinking in React: Component State
+	// - 5초 뒤에 status를 변경시켜 출력해보자.
+
 	state = {
 		greeting: "git add를 수행했다!",
+		// #4-2
 	};
+
+	// componentDidMount() {
+	//   setTimeout(() => {
+	//     // this.state.greeting = 'something'; // state를 바로 변경하면 아니 된다.
+	//     // setState를 이용해야한다.
+	//     this.setState({
+	//       greeting: "Hello AGAIN!!!"
+	//     });
+	//   }, 2000);
+	// }
+
 
 	componentDidMount() {
 		setTimeout(() => {
 			this.setState({
+				// #4-3 
 				moviess: [
 					{
 						id: 2,
@@ -35,7 +51,12 @@ class App extends Component {
 		}, 1500);
 	}
 
+	// #4-3 Loading States
+	// 데이터가 없을 때 '로딩'을 띄우고, 존재하면 영화정보가 보이도록 설정.
+	// _(언더바)를 사용하는 이유는 리액트에는 기능이 워낙 많아 나의 기능과 차이를 두기 위해
+	// date를 저장
 	_renderMovies = () => {
+		// map을 돌리려고 하는데 states.movies가 없으므로 에러.
 		const moviess = this.state.moviess.map((movie, index) => {
       return <Movie title={movie.title} poster={movie.poster} key={index} />
     })
@@ -43,8 +64,11 @@ class App extends Component {
 	}
 
 	render() {
+		// console.log(this._renderMovies())
 		return (
 			<div className="App">
+				{/* 데이터가 없을 때 '로딩'을 띄우고, 존재하면 영화정보가 보이도록 설정. */}
+				
 				{this.state.moviess ? this._renderMovies() : '로딩 중...'}
 			</div>
 		);
