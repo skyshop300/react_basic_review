@@ -15,24 +15,8 @@ class App extends Component {
 	};
 
 	componentDidMount() {
-		setTimeout(() => {
-			this.setState({
-				moviess: [
-					{
-						id: 2,
-						title: "Inception",
-						poster:
-							"http://d1841mjet2hm8m.cloudfront.net/thumb-900/fr_1099/1620/97/a6bca513f61184bfcc9020ccd91fb61b.jpg"
-					},
-					{
-						id: 2,
-						title: "Interstellar",
-						poster:
-							"https://http2.mlstatic.com/dvd-interestelar-interestellar-2014-christopher-nolan-D_NQ_NP_804372-MLM26763668352_022018-F.jpg"
-					}
-				]
-			});
-		}, 1500);
+		// api 불러오기
+		fetch('https://yts.am/api/v2/list_movies.json?sort_by=rating');
 	}
 
 	_renderMovies = () => {
