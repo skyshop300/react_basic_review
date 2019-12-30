@@ -1,5 +1,3 @@
 # react_basic_review
 
-sss
-
-sss
+react 연습용 repository
